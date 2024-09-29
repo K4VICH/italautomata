@@ -1,0 +1,140 @@
+﻿<Window x:Class="ItalAutomata.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItalAutomata"
+        mc:Ignorable="d"
+        Title="Ital Autómata" Height="710" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="Coral" Grid.ColumnSpan="5">
+            <TextBlock FontSize="48" HorizontalAlignment="Center">Ital autómata</TextBlock>
+        </StackPanel>
+
+        <ListView x:Name="display" Background="White" Margin="5" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="4">
+            <ListViewItem>
+                <DockPanel>
+                    <Button Background="White" Foreground="Black" Margin="5" Padding="5" DockPanel.Dock="Left" Click="Purchase_Clicked_Cola">
+                        Vásárlás
+                    </Button>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock Foreground="Black" FontSize="20" Text="Coca Cola"/>
+                        <TextBlock Foreground="Black" FontSize="20" Text="450Ft"/>
+                        <TextBlock x:Name="emptycola" Foreground="Red" Text="Kifogyott!"/>
+                    </StackPanel>
+                </DockPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <DockPanel>
+                    <Button Background="White" Foreground="Black" Margin="5" Padding="5" DockPanel.Dock="Left" Click="Purchase_Clicked_Pepsi">
+                        Vásárlás
+                    </Button>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock Foreground="Black" FontSize="20" Text="Pepsi"/>
+                        <TextBlock Foreground="Black" FontSize="20" Text="500Ft"/>
+                        <TextBlock x:Name="emptypepsi" Foreground="Red" Text="Kifogyott!"/>
+                    </StackPanel>
+                </DockPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <DockPanel>
+                    <Button Background="White" Foreground="Black" Margin="5" Padding="5" DockPanel.Dock="Left" Click="Purchase_Clicked_Fanta">
+                        Vásárlás
+                    </Button>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock Foreground="Black" FontSize="20" Text="Fanta"/>
+                        <TextBlock Foreground="Black" FontSize="20" Text="400Ft"/>
+                        <TextBlock x:Name="emptyfanta" Foreground="Red" Text="Kifogyott!"/>
+                    </StackPanel>
+                </DockPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <DockPanel>
+                    <Button Background="White" Foreground="Black" Margin="5" Padding="5" DockPanel.Dock="Left" Click="Purchase_Clicked_7up">
+                        Vásárlás
+                    </Button>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock Foreground="Black" FontSize="20" Text="7up"/>
+                        <TextBlock Foreground="Black" FontSize="20" Text="300Ft"/>
+                        <TextBlock x:Name="empty7up" Foreground="Red" Text="Kifogyott!"/>
+                    </StackPanel>
+                </DockPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <DockPanel>
+                    <Button Background="White" Foreground="Black" Margin="5" Padding="5" DockPanel.Dock="Left" Click="Purchase_Clicked_Sprite">
+                        Vásárlás
+                    </Button>
+                    <StackPanel DockPanel.Dock="Right">
+                        <TextBlock Foreground="Black" FontSize="20" Text="Sprite"/>
+                        <TextBlock Foreground="Black" FontSize="20" Text="350Ft"/>
+                        <TextBlock x:Name="emptysprite" Foreground="Red" Text="Kifogyott!"/>
+                    </StackPanel>
+                </DockPanel>
+            </ListViewItem>
+        </ListView>
+
+        <Button Background="white" Foreground="green" Margin="5" Padding="5" Grid.Row="5" Click="Insert_Clicked_50">
+            50Ft
+        </Button>
+        <Button Background="white" Foreground="green" Margin="5" Padding="5" Grid.Row="5" Grid.Column="1" Click="Insert_Clicked_100">
+            100Ft
+        </Button>
+        <Button Background="white" Foreground="green" Margin="5" Padding="5" Grid.Row="5" Grid.Column="2" Click="Insert_Clicked_200">
+            200Ft
+        </Button>
+
+        <DockPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2">
+            <Button Background="white" Foreground="blue" Padding="5" Height="40" Width="150" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Click="Give_Change">
+                Visszajáró kiadása
+            </Button>
+        </DockPanel>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="3">
+            <TextBlock x:Name="tbinserted" Foreground="Black" FontSize="20" Text="Bedobott apró: 0Ft"/>
+            <TextBlock x:Name="tbchange" Foreground="Black" FontSize="20" Text="Visszajáró: 0Ft"/>
+        </StackPanel>
+
+        <DockPanel Margin="5" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="BlanchedAlmond">
+            <TextBlock x:Name="tbBalance" DockPanel.Dock="Bottom" Foreground="Black" FontSize="20" Text="Pénztár: 0Ft"/>
+            <TextBlock DockPanel.Dock="Top" FontSize="28" Foreground="Black" HorizontalAlignment="Center">Készlet</TextBlock>
+            <StackPanel DockPanel.Dock="Bottom">
+                <TextBlock x:Name="tbInvCola" Margin="5" Foreground="Black" FontSize="16" Text="Coca Cola: 0db"/>
+                <TextBlock x:Name="tbInvPepsi" Margin="5" Foreground="Black" FontSize="16" Text="Pepsi: 0db"/>
+                <TextBlock x:Name="tbInvFanta" Margin="5" Foreground="Black" FontSize="16" Text="Fanta: 0db"/>
+                <TextBlock x:Name="tbInv7up" Margin="5" Foreground="Black" FontSize="16" Text="7up: 0db"/>
+                <TextBlock x:Name="tbInvSprite" Margin="5" Foreground="Black" FontSize="16" Text="Sprite: 0db"/>
+            </StackPanel>
+        </DockPanel>
+
+        <StackPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="DarkKhaki">
+            <TextBlock DockPanel.Dock="Top" FontSize="28" Foreground="Black" HorizontalAlignment="Center">Kezelő felület</TextBlock>
+            <Button Background="White" Foreground="red" Padding="10" Margin="5" Click="Refill_Clicked">
+                Készlet feltöltése
+            </Button>
+            <Button Background="White" Foreground="red" Padding="10" Margin="5" Click="Empty_Clicked">
+                Készlet kiürítése
+            </Button>
+            <Button Background="White" Foreground="red" Padding="10" Margin="5" Click="Withdraw_Clicked">
+                Pénztár kiürítése
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
